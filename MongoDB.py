@@ -14,10 +14,31 @@ def mongo_connect(url):
         print("Could not establish connection: {0}").format(e)
 
 conn = mongo_connect(MONGODB_URI)
+db = conn[DBS_NAME]
+coll = db[COLLECTION_NAME]
+print("Collection found")
+print(coll)
 
-coll = conn[DBS_NAME][COLLECTION_NAME]
+test_record = {
+    "test" : "success"
+}
 
-documents = coll.find()
+first_record = {
+    'first': 'john',
+    'last': 'lennon',
+    'dob': '09/10/1940',
+    'gender': 'm',
+    'hair_colour': 'brown',
+    'occupation': 'beatle',
+    'nationality': 'english'
+}
 
-for doc in documents:
+# coll.insert_one(test_record)
+# print("Record inserted")
+
+# documents = coll.find()
+# print(documents)
+
+for doc in coll.find():
     print(doc)
+print("docs printed")
