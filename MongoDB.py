@@ -33,7 +33,7 @@ first_record = {
     'nationality': 'english'
 }
 
-# coll.insert_one(test_record)
+coll.insert_one(test_record)
 # print("Record inserted")
 
 # documents = coll.find()
