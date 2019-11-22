@@ -24,4 +24,21 @@ def show_menu():
     option = input("Enter option: ")
     return option
 
+def main_loop():
+    while True:
+        option = show_menu()
+        if option == "1":
+            print("You have selected option 1")
+        if option == "2":
+            print("You have selected option 2")
+        if option == "3":
+            print("You have selected option 3")
+        if option == "4":
+            print("You have selected option 4")
+        elif option == "5":
+            conn.close()
+            break
+        else:
+            print("Invalid option")
+        print("")
 
