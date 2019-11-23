@@ -16,7 +16,7 @@ def mongo_connect(url):
 def show_menu():
     print("")
     print("1. Add a record.")
-    print("2. Find a rcord by name.")
+    print("2. Find a record by name.")
     print("3. Edit a record.")
     print("4. Delete a record.")
     print("5. Exit.")
@@ -56,7 +56,13 @@ def add_record():
     except:
         print("Error accessing the database.")
 
-
+def find_record():
+    doc = get_record()
+    if doc:
+        print("")
+        for key, value in doc.items():
+            if key !="_id":
+                print(key.capitalize()+": " + value.capitalize())
 
 def main_loop():
     while True:
@@ -64,7 +70,7 @@ def main_loop():
         if option == "1":
             add_record()
         if option == "2":
-            print("You have selected option 2")
+            find_record()
         if option == "3":
             print("You have selected option 3")
         if option == "4":
