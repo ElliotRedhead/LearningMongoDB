@@ -64,6 +64,24 @@ def find_record():
             if key !="_id":
                 print(key.capitalize()+": " + value.capitalize())
 
+def edit_record():
+    doc = get_record()
+    if doc:
+        update_doc={}
+        print("")
+        for key, values in doc.items():
+            if key != "_id":
+                update_doc[key] = input(key.capitalize() + " [" + value + "] = ")
+
+                if update_doc == "":
+                    update_doc = value
+        try:
+            coll.update_one(doc, {"$set": update_doc})
+            print("")
+            print("Document updated.")
+        except:
+            print("Error accessing the database.")
+
 def main_loop():
     while True:
         option = show_menu()
@@ -72,7 +90,7 @@ def main_loop():
         if option == "2":
             find_record()
         if option == "3":
-            print("You have selected option 3")
+            edit_record()
         if option == "4":
             print("You have selected option 4")
         elif option == "5":
