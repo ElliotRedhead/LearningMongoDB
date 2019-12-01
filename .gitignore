@@ -1,6 +1,6 @@
 /venv
 
-config.py
+auth.py
 
 __pycache__
 

@@ -4,6 +4,7 @@
 </head>
 
 <body>
+    Tasks:
     {% for task in tasks %}
         {{task.task_name}}
         {{task.category_name}}
@@ -11,6 +12,7 @@
         {{task.is_urgent}}
         {{task.due_date}}
     {% endfor %}
+    End of tasks.
 </body>
 
 </html>
