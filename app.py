@@ -21,6 +21,10 @@ test_dict = {"insertionTest":"true"}
 def get_tasks():
     return render_template("tasks.html", tasks=mongo.db.tasks.find(), test=mongo.db.collection.count())
 
+@app.route("/add_task")
+def add_task():
+    return render_template("addtask.html")
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP","127.0.0.1"),
         port=os.environ.get("PORT","5000"),
