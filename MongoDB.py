@@ -1,7 +1,7 @@
 import pymongo
-import config
+import auth
 
-MONGODB_URI = 'mongodb+srv://'+config.username+':'+config.password+'@mycluster-ptgp4.mongodb.net/test?retryWrites=true&w=majority'
+MONGODB_URI = 'mongodb+srv://'+auth.username+':'+auth.password+'@mycluster-ptgp4.mongodb.net/test?retryWrites=true&w=majority'
 DBS_NAME = "TestDB"
 COLLECTION_NAME = "TestMDB"
 
