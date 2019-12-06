@@ -4,13 +4,14 @@
   <form action="" method="POST" class="col s12">
     <div class="row">
       <div class="input-field col s12">
-        <select>
-          <option value="" disabled selected>Choose your option</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
+          <i class="material-icons prefix">poll</i>
+        <select id="category" name="category_name">
+          <option value="" disabled selected>Select Category</option>
+          {% for cat in categories %}
+          <option value={{cat.category_name}}>{{cat.category_name}}</option>
+          {% endfor %}
         </select>
-        <label>Materialize Select</label>
+        <label>Task Category</label>
       </div>
     </div>
     <div class="row">
@@ -28,7 +29,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s12">
+      <div id="matfix" class="input-field col s12">
         <i class="material-icons prefix">today</i>
         <input id="due_date" name="due_date" type="text" class="datepicker">
         <label for="icon_prefix">Due Date</label>
