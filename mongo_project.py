@@ -1,7 +1,13 @@
 import pymongo
-import auth
+import os
+from os import path
+if path.exists("auth.py"):
+  import auth
 
-MONGODB_URI = 'mongodb+srv://'+auth.username+':'+auth.password+'@mycluster-ptgp4.mongodb.net/test?retryWrites=true&w=majority'
+username = os.environ.get("username")
+password = os.environ.get("password")
+
+MONGODB_URI = 'mongodb+srv://'+username+':'+password+'@mycluster-ptgp4.mongodb.net/test?retryWrites=true&w=majority'
 DBS_NAME = "TestDB"
 COLLECTION_NAME = "TestMDB"
 

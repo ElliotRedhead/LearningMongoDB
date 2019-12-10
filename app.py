@@ -4,14 +4,21 @@ from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
+from os import path
+if path.exists("auth.py"):
+  import auth
+
+username = os.environ.get("username")
+password = os.environ.get("password")
+
 app = Flask(__name__)
-MONGODB_URI = 'mongodb+srv://'+auth.username+':'+auth.password + \
+MONGODB_URI = 'mongodb+srv://'+username+':'+password + \
     '@mycluster-ptgp4.mongodb.net/test?retryWrites=true&w=majority'
 DBS_NAME = "task_manager"
 COLLECTION_NAME = "tasks"
 
 app.config["MONGO_DBNAME"] = "task_manager"
-app.config["MONGO_URI"] = "mongodb+srv://"+auth.username+":"+auth.password + \
+app.config["MONGO_URI"] = "mongodb+srv://"+username+":"+password + \
     "@mycluster-ptgp4.mongodb.net/task_manager?retryWrites=true&w=majority"
 
 mongo = PyMongo(app)
